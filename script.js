@@ -732,11 +732,7 @@ function displayAccount(){
     box.innerHTML = `
       <div class="booking-box">
         <h3>Not signed in</h3>
-        <p>Please <a href="login.html">log in</a> or <a href="signup.html">sign up</a> to view your account.</p>
-        <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="login.html" class="button">Log In</a>
-          <a href="signup.html" class="button button-secondary">Sign Up</a>
-        </div>
+        <p>Please <a href="signup.html">Signup</a> or <a href="login.html">Login</a> to view your account details.</p>
       </div>
     `;
     return;
@@ -1106,8 +1102,16 @@ window.addEventListener('load', function(){
   displayCheckout();
   displayTrack();
   displayThankYou();
-  displayAccount();
-  displayLogin();
-  displaySignup();
+
+  if (document.getElementById("accountContent")) {
+    displayAccount();
+  }
+  if (document.getElementById("loginForm")) {
+    displayLogin();
+  }
+  if (document.getElementById("signupForm")) {
+    displaySignup();
+  }
+
   loadNotes();
 });
