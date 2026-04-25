@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Molejo Farms</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <div class="logo-container">
+    <img src="images/ui/logo.png" class="logo">
+    <h1 class="brand">Molejo Farms</h1>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="events.html">Events</a>
+    <a href="bookings.html">Booking</a>
+    <a href="cart.html">Cart(<span id="cart-count">0</span>)</a>
+     <a href="tips.html">Tips</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+     <a href="account.html">Account</a>
+  </nav>
+</header>
+<main class="container center-section">
+  <h2 class="section-title">Checkout</h2>
+  <div class="checkout-layout">
+    <div class="checkout-summary">
+      <div class="booking-box" id="checkoutCartDisplay"></div>
+      <div class="booking-box">
+        <h3>Order Total</h3>
+        <p id="checkoutTotal">BWP 0.00</p>
+      </div>
+    </div>
+
+    <div class="checkout-form booking-box">
+      <form id="checkoutForm" onsubmit="placeOrder(event)">
+    <div class="booking-box">
+      <h3>Delivery Options</h3>
+      <label><input type="radio" name="deliveryOption" value="pickup" onchange="updateCheckoutForm()" checked> Pickup</label><br>
+      <label><input type="radio" name="deliveryOption" value="delivery" onchange="updateCheckoutForm()"> Delivery</label>
+      <p id="deliveryWarning" class="muted" style="display:none; margin-top:10px;"></p>
+    </div>
+
+    <div class="booking-box" id="deliveryAddressGroup" style="display:none;">
+      <h3>Delivery Details</h3>
+      <label>Delivery Address</label>
+      <input type="text" id="deliveryAddress" placeholder="Enter delivery address">
+    </div>
+
+    <div class="booking-box" id="savedAddressGroup" style="display:none;">
+      <h3>Saved Addresses</h3>
+      <select id="savedAddressSelect" onchange="updateSavedAddressSelection()"></select>
+      <p class="muted">Pick a saved address and it will populate the delivery address field.</p>
+    </div>
+
+    <div class="booking-box">
+      <h3>Contact</h3>
+      <label>Phone number</label>
+      <input type="text" id="contactNumber" placeholder="Enter phone number">
+    </div>
+
+    <div class="booking-box">
+      <h3>Payment Options</h3>
+      <label><input type="radio" name="paymentOption" value="payNow" onchange="updateCheckoutForm()" checked> Pay Now</label><br>
+      <label><input type="radio" name="paymentOption" value="payOnPickup" onchange="updateCheckoutForm()"> Pay on Pickup</label><br>
+      <div id="cardPaymentOption" style="margin-left:16px;">
+        <label><input type="radio" name="paymentOption" value="payOnDelivery" onchange="updateCheckoutForm()"> Pay on Delivery</label>
+      </div>
+    </div>
+
+    <div class="booking-box" id="cardDetailsGroup" style="display:block;">
+      <h3>Card Details</h3>
+      <label>Card Holder Name</label>
+      <input type="text" id="cardName" placeholder="John Doe">
+      <label>Card Number</label>
+      <input type="text" id="cardNumber" placeholder="1234123412341234" maxlength="19">
+      <label>Expiry (MM/YY)</label>
+      <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+      <label>CVV</label>
+      <input type="text" id="cardCvv" placeholder="123" maxlength="3">
+      <p class="muted">⚠️ This is a demo site. Use test card: 4111111111111111</p>
+    </div>
+
+    <div class="checkout-actions">
+      <button type="submit" class="button">Place Order</button>
+    </div>
+  </form>
+  </div>
+  </div>
+</main>
+<footer>
+  <p>© 2026 Molejo Farms</p>
+  <p>Email: MolejoFarms@gmail.com</p>
+</footer><script src="script.js"></script></body>
+</html>

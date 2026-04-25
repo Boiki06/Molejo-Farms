@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart - Molejo Farms</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-container">
+    <img src="images/ui/logo.png" class="logo">
+    <h1 class="brand">Molejo Farms</h1>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="events.html">Events</a>
+    <a href="bookings.html">Booking</a>
+    <a href="cart.html">Cart(<span id="cart-count">0</span>)</a>
+    <a href="tips.html">Tips</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+     <a href="account.html">Account</a>
+  </nav>
+</header>
+
+<h2 class="section-title">🛒 Your Cart</h2>
+
+<!-- CART CONTENT -->
+<div class="booking-box" id="cartDisplay"></div>
+
+<!-- DELIVERY NOTICE -->
+<div style="text-align:center; margin: 20px; color: #666;">
+  <p>ℹ️ Delivery available for orders over BWP 100</p>
+</div>
+
+
+<!-- ACTION BUTTONS -->
+<div style="text-align:center; margin: 30px;">
+  <button onclick="checkout()">Proceed to Checkout</button>
+  <button onclick="clearCart()">Clear Cart</button>
+</div>
+
+
+<!-- EMPTY STATE (OPTIONAL MESSAGE AREA) -->
+<div style="text-align:center; color: gray;">
+  <p>Tip: Add products, bookings, or event tickets to see them here.</p>
+</div>
+
+
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Molejo Farms</p>
+  <p>Email: MolejoFarms@gmail.com</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

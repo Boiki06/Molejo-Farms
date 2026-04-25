@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Molejo Farms</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <div class="logo-container">
+    <img src="images/ui/logo.png" class="logo">
+    <h1 class="brand">Molejo Farms</h1>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>   
+    <a href="events.html">Events</a>
+    <a href="bookings.html">Booking</a>
+    <a href="cart.html">Cart(<span id="cart-count">0</span>)</a>
+     <a href="tips.html">Tips</a>
+    <a href="about.html">About</a> 
+    <a href="contact.html">Contact</a>
+      <a href="account.html">Account</a>
+  </nav>
+</header>
+<main class="container center-section">
+  <h2 class="section-title">Sign Up</h2>
+  <div class="booking-box">
+    <form id="signupForm" onsubmit="registerUser(event)">
+      <label>Full Name</label>
+      <input type="text" id="signupName" placeholder="Full name">
+      <label>Email</label>
+      <input type="email" id="signupEmail" placeholder="Email address">
+      <label>Phone</label>
+      <input type="text" id="signupPhone" placeholder="Phone number">
+      <label>Password</label>
+      <input type="password" id="signupPassword" placeholder="Password">
+      <label>Confirm Password</label>
+      <input type="password" id="signupConfirmPassword" placeholder="Confirm password">
+      <button type="submit" class="button">Create Account</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a>.</p>
+  </div>
+</main>
+<footer>
+  <p>© 2026 Molejo Farms</p>
+  <p>Email: MolejoFarms@gmail.com</p>
+</footer><script src="script.js"></script></body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tips & Tricks - Molejo Farms</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<header>
+    <div class="logo-container">
+    <img src="images/ui/logo.png" class="logo">
+    <h1 class="brand">Molejo Farms</h1>
+  </div>
+ 
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="events.html">Events</a>
+    <a href="bookings.html">Booking</a>
+    <a href="cart.html">Cart(<span id="cart-count">0</span>)</a>
+    <a href="tips.html">Tips</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="account.html">Account</a>
+  </nav>
+</header>
+
+<h2 class="section-title"> Farming Tips & Tricks</h2>
+
+<!-- 🔥 POPULAR TIPS -->
+<section class="popular container">
+  <h3>🔥 Popular Tips</h3>
+  <ul>
+    <li>🌱 Always prepare soil before planting</li>
+    <li>💧 Water plants early morning</li>
+    <li>🐄 Keep animals hydrated daily</li>
+  </ul>
+</section>
+
+<div class="cards container">
+
+<!-- 🌱 CROP FARMING -->
+<div class="card">
+  <h3>🌱 Crop Farming Tips</h3>
+
+  <p>
+    Successful farming starts with good soil preparation and proper planting methods.
+  </p>
+
+  <div class="highlight">
+    ⭐ Important: Always test your soil before planting to know what nutrients are needed.
+  </div>
+
+  <div class="more-text" id="cropMore">
+    <p>
+      Use compost or manure to improve fertility. Ensure correct spacing between crops to avoid overcrowding.
+      Water plants early morning or late afternoon to reduce evaporation.
+    </p>
+
+    <p>
+      Use natural pest control methods like crop rotation and organic sprays.
+      Harvest crops at the right time and store them properly to maintain quality.
+    </p>
+  </div>
+
+  <button onclick="toggleRead('cropMore', this)">Read More</button>
+</div>
+
+<!-- 🐄 ANIMAL FARMING -->
+<div class="card">
+  <h3>🐄 Animal Farming Tips</h3>
+
+  <p>
+    Animal farming requires proper feeding, housing, and health management.
+  </p>
+
+  <div class="highlight">
+    ⭐ Important: Clean water must always be available for animals.
+  </div>
+
+  <div class="more-text" id="animalMore">
+    <p>
+      Provide balanced nutrition including proteins and vitamins. Keep animal shelters clean
+      to prevent diseases and infections.
+    </p>
+
+    <p>
+      Vaccinate animals regularly and monitor their health daily. Select strong animals
+      for breeding to improve productivity.
+    </p>
+  </div>
+
+  <button onclick="toggleRead('animalMore', this)">Read More</button>
+</div>
+
+</div>
+
+<!-- 📝 NOTES -->
+<h2 class="section-title">📝 Your Notes</h2>
+
+<div class="container center-section">
+  <textarea id="user-notes" placeholder="Write your farming notes here..."></textarea>
+  <button onclick="saveNotes()">Save Notes</button>
+</div>
+
+<footer>
+  <p>© 2026 Molejo Farms</p>
+  <p>Email: MolejoFarms@gmail.com</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
+
+  

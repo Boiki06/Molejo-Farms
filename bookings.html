@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking - Molejo Farms</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="images/ui/logo.png" class="logo">
+    <h1 class="brand">Molejo Farms</h1>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="events.html">Events</a>
+    <a href="bookings.html">Booking</a>
+    <a href="cart.html">Cart(<span id="cart-count">0</span>)</a>
+    <a href="tips.html">Tips</a>
+     <a href="about.html">About</a>
+     <a href="contact.html">Contact</a>
+     <a href="account.html">Account</a>
+  
+    
+  </nav>
+</header>
+
+<!-- BOOKING DISPLAY -->
+<div class="booking-box" id="bookingDisplay">
+  <h3>Your Booking </h3>
+  <p>No booking yet</p>
+</div>
+
+<h2 class="section-title">🏕️ Book Your Stay</h2>
+
+<!-- DATE + GUESTS -->
+<div class="booking-box">
+  <h3>Select Dates & Guests</h3>
+  <input type="date" id="checkin">
+  <input type="date" id="checkout">  
+
+  Guests:
+  <input type="number" id="guests" value="1" min="1" max="10">
+</div>
+
+<div class="booking-box" id="bookingSummary" style="display:none;">
+  <h3>Booking Summary</h3>
+  <div id="bookingSummaryContent"></div>
+</div>
+
+<div class="cards container">
+
+<!-- CAMPING -->
+<div class="card">
+  <h3>🏕️ Camping</h3>
+
+  <div class="package-images">
+    <img src="images/bookings/campingpackage.jpg">
+    <img src="images/bookings/fire.jpg">
+  </div>
+  <div class="highlight">Max 2 guests</div>
+
+  <p>Enjoy nature, campfire, and outdoor farm experience.</p>
+
+  <ul>
+    <li>🔥 Campfire</li>
+    <li>🌿 Farm tour + game drive</li>
+    <li>🍳 Kitchen access</li>
+    <li>🛁 Shared shower</li>
+  </ul>
+
+  <p><b>BWP 120 per night</b></p>
+
+  <button onclick="bookNow('Camping', 120, 2)">Book Now</button>
+</div>
+
+<!-- FARM TOUR -->
+<div class="card">
+  <h3>🌾 Farm Tour</h3>
+
+  <div class="package-images">
+    <img src="images/bookings/farmtour1.jpg">
+    <img src="images/bookings/farmtour2.jpg">
+  </div>
+  <div class="highlight">Weekend only</div>
+
+  <p>Explore the farm with a guided tour, animals, and harvest experience.</p>
+
+  <ul>
+    <li>🚜 Guided farm tour</li>
+    <li>🐄 Animal feeding</li>
+    <li>🌿 Garden walk</li>
+    <li>🥣 Farm-style refreshments</li>
+  </ul>
+
+  <div class="highlight">Book at least 7 days in advance</div>
+  <p><b>BWP 250 per person</b></p>
+
+  <button onclick="bookNow('Farm Tour', 250, 8)">Book Now</button>
+</div>
+
+<!-- STANDARD -->
+<div class="card">
+  <h3>🏠 Standard Hut</h3>
+
+  <div class="package-images">
+    <img src="images/bookings/standardhut.jpg">
+    <img src="images/bookings/farmkitchen.jpg">
+  </div>
+
+  <div class="highlight">Max 2 guests</div>
+  <p>Simple comfort stay.</p>
+
+  <ul>
+    <li> 🔥Campfire</li>
+    <li>🛏️ Bed</li>
+    <li>👕 Iron</li>
+    <li>🚿 Shared shower</li>
+    <li>🌿 Tour + game drive</li>
+    <li>🍳 Kitchen access</li>
+  </ul>
+
+  <p><b>BWP 300 per night</b></p>
+
+  <button onclick="bookNow('Standard Hut', 300, 2)">Book Now</button>
+</div>
+
+<!-- EXECUTIVE -->
+<div class="card">
+  <h3>⭐ Executive Hut</h3>
+
+  <div class="package-images">
+    <img src="images/bookings/executivehut.jpg">
+    <img src="images/bookings/pooltable.jpg">
+  </div>
+
+  <div class="highlight">Max 2 guests</div>
+  <p>Luxury comfort experience.</p>
+
+  <ul>
+    <li>🛏️ Bed</li>
+    <li>🧊 Mini fridge</li>
+    <li>👕 Iron</li>
+    <li>🌿 Tour + game drive</li>
+    <li>🍳 Kitchen access</li>
+    <li>🛁 Private bathroom</li>
+    <li>📶 Wi-Fi</li>
+
+  </ul>
+
+  <div class="highlight">⭐ Most popular choice</div>
+
+  <p><b>BWP 500 per night</b></p>
+
+  <button onclick="bookNow('Executive Hut', 500, 2)">Book Now</button>
+</div>
+
+<!-- PRESIDENTIAL -->
+<div class="card">
+  <h3>👑 Presidential Suite</h3>
+
+  <div class="package-images">
+    <img src="images/bookings/presidentialhut.jpg">
+    <img src="images/bookings/pools.jpg">
+  </div>
+
+<div class="highlight">Max 4 guests</div>
+
+  <p>Ultimate luxury stay.</p>
+
+  <ul>
+    <li>All amenities of Executive Hut</li>
+     <li>🛏️ 2 Bedrooms</li>
+    <li>🍽️ Private chef</li>
+   <li>🚗 Private game drive</li>
+    <li>🍾 Welcome drinks</li>
+    <li>🎁 Exclusive access to events</li>
+    <li> 🏊‍♂️ Pool Access</li>
+
+  </ul>
+
+  <div class="highlight">⭐ Premium experience</div>
+
+  <p><b>BWP 900 per night</b></p>
+
+  <button onclick="bookNow('Presidential Suite', 900, 4)">Book Now</button>
+</div>
+
+</div>
+
+<footer>
+  <p>© 2026 Molejo Farms</p>
+  <p>Email: MolejoFarms@gmail.com</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

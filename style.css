@@ -1,39 +1,29 @@
-body {
-  font-family: -apple-system, sans-serif;
-  margin: 0;
-  background: #f5f5f7;
-  color: #1d1d1f
+:root {
+  --primary: #5f4d0d;
+  --secondary: #6aa84f;
+  --accent: #d9534f;
+  --background: #f8f6f0;
+  --card-bg: #ffffff;
+  --text: #1d1d1f;
+  --muted: #6c757d;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+}
 
+/* HEADER */
 header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 20px 40px;
+  background: rgba(255,255,255,0.7);
   backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.8);
-}
-
-nav {
-  background-color: #5f4d0d;
-  padding: 15px 30px;
-  margin: 20px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-}
-
-nav a {
-  margin: 10px;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  transition:0.3s
-   font-weight: bold;
-}
-
-nav a:hover{
-  opacity:o.6;
+  flex-wrap: wrap;
 }
 
 .logo-container {
@@ -43,82 +33,438 @@ nav a:hover{
 }
 
 .logo {
-  width: 200px;
-  height:auto px;
-  border-radius: 50%;
+  width: 80px;
 }
 
+.brand {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background: var(--accent);
+  color: white;
+}
+
+
+
+
+
+/* HERO */
 .hero {
   text-align: center;
-  padding: 100px;
-  background: linear-gradient(to right, #e8f5e9, white);
+  padding: 100px 20px;
+  background: linear-gradient(to right, #e8f5e9, #ffffff);
 }
 
+/* LAYOUT */
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* CARDS */
 .cards {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
   padding: 40px;
+  align-items: stretch;
 }
 
 .card {
-  flex: 1 
-  background white;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  width: 260px;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   transition: 0.3s;
+  position: relative;
+
+ 
 }
 
-.card:hover {
+.card p{
+  text-align:center;
+  font-style: italic;
+}
+.card:hover { 
   transform: translateY(-10px);
 }
 
-.fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s;
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* LOADER */
-#loader {
-  position: fixed;
+.card img {
   width: 100%;
-  height: 100vh;
-  background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.logo-text {
-  font-size: 40px;
-  font-family: cursive;
-  animation: fade 2s infinite;
+/* GRID FOR PRODUCTS */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 40px;
 }
-button{
-  padding: 12px 20px;
-  border-radius: 30px;
+
+/* BUTTON */
+button {
+  padding: 10px;
+  border-radius: 6px;
   border: none;
-  background: black;
+  background: var(--secondary);
   color: white;
   cursor: pointer;
 }
-.search-bar {
-  width: 175px;
-  height: 30px; 
-}
-@keyframes fade {
-  0% {opacity: 0;}
-  50% {opacity: 1;}
-  100% {opacity: 0;}
+
+button:hover {
+  background: #5a9442;
 }
 
-@media (max-width: 768px){
-  .cards {flex-direction: column;}
-  header {flex-direction: column;}
+/* QUANTITY CONTROLS */
+.quantity-controls {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.quantity-controls input {
+  width: 50px;
+  text-align: center;
+}
+
+.total {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* BADGE */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--accent);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* TITLES */
+.section-title {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--primary);
+  color: white;
+}
+.center-section {
+  text-align: center;
+  max-width: 700px;
+  margin: 40px auto;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  width: 100%;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+/* ⭐ Highlight important tips */
+.highlight {
+  background: #fff3cd;
+  padding: 10px;
+  border-left: 4px solid #d9534f;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+/* 🔽 Read more hidden */
+.more-text {
+  display: none;
+}
+
+/* 🔥 Popular tips */
+.popular {
+  background: #f0f8f0;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+}
+.event-date {
+  font-weight: bold;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+
+.sold-out-date {
+  color: #d9534f;
+}
+.card.pass {
+  border: 2px dashed var(--primary);
+  background: #fffdf5;
+}
+.package-images {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.package-images img {
+  width: 48%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.booking-box {
+  background: white;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.highlight {
+  background: #fff3cd;
+  padding: 8px;
+  border-left: 4px solid #d9534f;
+  margin: 10px 0;
+}
+.cart-section{
+  margin-bottom:20px;
+  text-align:left;
+}
+
+.cart-item{
+  background:#f9f9f9;
+  padding:10px 15px;
+  margin:8px 0;
+  border-radius:6px;
+
+   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.cart-item-info {
+  flex: 1;
+}
+
+/* BUTTON GROUP */
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* SMALLER BUTTONS */
+.cart-controls button {
+  padding: 5px 8px;
+  font-size: 14px;
+}
+
+/* REMOVE BUTTON */
+.cart-remove {
+  background: #d9534f;
+}
+
+.cart-remove:hover {
+  background: #c9302c;
+}
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  width: 260px;
+}
+
+.card-link .card {
+  cursor: pointer;
+}
+
+.account-section {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 20px rgba(0,0,0,0.05);
+}
+
+.account-section form label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+}
+
+.account-section input,
+.account-section textarea,
+.account-section select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.saved-address {
+  border: 1px solid #e6e6e6;
+  background: #fafafa;
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+}
+
+.button-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.receipt-items {
+  background: #f5f5f5;
+  padding: 14px;
+  border-radius: 10px;
+  margin: 12px 0;
+}
+
+.receipt-items div {
+  margin-bottom: 8px;
+}
+
+.receipt-item {
+  padding: 16px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 16px;
+  border-radius: 10px;
+}
+
+.muted {
+  color: #666;
+  font-size: 0.95rem;
+  margin-top: 6px;
+}
+
+.booking-box {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 720px;
+  border-radius: 14px;
+  text-align: left;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+}
+
+.booking-box h3 {
+  margin-top: 0;
+}
+
+.booking-box label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 600;
+}
+
+.booking-box input,
+.booking-box textarea,
+.booking-box select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-top: 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.booking-box textarea {
+  min-height: 120px;
+}
+
+.checkout-layout {
+  display: grid;
+  gap: 24px;
+}
+
+.checkout-summary {
+  display: grid;
+  gap: 20px;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkout-actions {
+  text-align: right;
+  margin-top: 12px;
+}
+
+.booking-box .button {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+@media (min-width: 900px) {
+  .checkout-layout {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+}
+
+.contact-card {
+  display: grid;
+  gap: 16px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #e6e6e6;
+}
+
+.contact-card p,
+.contact-card li {
+  margin: 8px 0;
 }

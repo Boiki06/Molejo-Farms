@@ -1,105 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Molejo-Farms</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Molejo Farms</title>
+
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div id="loader">
-  <h1 class="logo-text">Molejo Farms</h1>
-</div>
 
 <header>
   <div class="logo-container">
-    <img src="logo.png" alt="Molejo Farms Logo" class="logo">
-    
+    <img src="images/ui/logo.png" class="logo">
+    <h1 class="brand">Molejo Farms</h1>
   </div>
 
   <nav>
     <a href="index.html">Home</a>
     <a href="products.html">Products</a>
-    <a href="courses.html">Courses</a>
     <a href="events.html">Events</a>
-    <a href="booking.html">Camping</a>
-    <a href="cart.html">Cart</a>
-    <a href="account.html">Account</a>
+    <a href="bookings.html">Booking</a>
+    <a href="cart.html">Cart(<span id="cart-count">0</span>)</a>
+    <a href="tips.html">Tips</a>
+  <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+     <a href="account.html">Account</a>
+    
   </nav>
 
-  <input type="text" class="search-bar" placeholder="Search..." onkeyup="searchProducts()">
 </header>
 
-<section class="hero fade">
-  <h2>Welcome to Molejo Farms 🌿</h2>
-  <p>Fresh produce, luxury camping & farming education</p>
-
-  <button onclick="location.href='products.html'">
-    Shop Now
-  </button>
-</section>
-<section class="cards">
-  <div class="card fade">
-    <img src="farm1.jpg">
-    <div class="card-content">Fresh Products 🌽</div>
-  </div>
-
-  <div class="card fade">
-    <img src="event.jpg">
-    <div class="card-content">Events 🎉</div>
-  </div>
-
-  <div class="card fade">
-    <img src="camping.jpg">
-    <div class="card-content">Camping 🏕️</div>
-  </div>
-</section>
-  
-<section class="cards fade">
-  <div class="card">
-    <h3>🌽 Organic Products</h3>
-    <p>Fresh from our farm</p>
-  </div>
-
-  <div class="card">
-    <h3>🏕️ Camping</h3>
-    <p>Experience nature</p>
-  </div>
-
-  <div class="card">
-    <h3>🎓 Courses</h3>
-    <p>Learn farming skills</p>
-  </div>
+<section class="hero">
+  <h1>Welcome to Molejo Farms </h1>
+  <p>Fresh produce & farm experiences</p>
+  <button onclick="location.href='products.html'">Shop Now</button>
 </section>
 
-<section class="fade">
-  <h2>What Our Customers Say</h2>
+<h2 class="section-title">What We Offer</h2>
 
-  <div class="card">
-    <p>"Amazing farm experience!"</p>
-  </div>
+<section class="cards container">
 
+<a href="products.html" class="card-link">
   <div class="card">
-    <p>"Fresh and high-quality products."</p>
+    <img src="images/banners/farm1.jpg" alt="Farm Image">
+   
+    <h3>Fresh Products</h3>
   </div>
-</section>
-<section>
-  <h2>Customer Reviews</h2>
-    <div class="card">"Best farm ever!"</div>
+</a>
+<a href="events.html" class="card-link">
+  <div class="card">
+    <img src="images/banners/event.jpg" alt="Event Image">
+    <h3>Events</h3>
+  </div>
+</a>
+
+<a href="bookings.html" class="card-link">
+  <div class="card">
+    <img src="images/banners/camping.jpg" alt="Camping Image">
+    <h3>Camping</h3>
+  </div>
+</a>
 </section>
   
-<section class="fade">
-  <h2>FAQ</h2>
 
-  <p><b>Do you deliver?</b> Yes, we offer delivery services.</p>
-  <p><b>Can I book camping?</b> Yes, bookings are available online.</p>
-</section> 
   
+  <h2 class="section-title">What Our Customers Say</h2>
+
+    <section class="cards container">
+
+    <div class="card"><p> "Molejo Farms has the best fresh produce in town!"</p></div>
+    <div class="card"><p> "I had an amazing time at their farm events!"</p></div>
+    <div class="card"><p> "Camping at Molejo Farms was a unique experience!"</p></div>
+ <div class="card"><p> "Their customer service is top-notch!"</p></div>
+    <div class="card"><p> "I love their farm-to-table products!"</p></div>
+   <div class="card">  <p> "Molejo Farms is my go-to for fresh produce!"</p> </div>
+   </section>
+
+    <h2 class="section-title">Customer Reviews</h2>
+    <section class="cards container">
+    <div class="card"><p> "The farm events are so much fun and educational!"</p></div>
+    <div class="card"><p> "Camping at Molejo Farms was a unique and memorable experience!"</p></div>
+    <div class="card"><p> "The fresh produce from Molejo Farms is always delicious!"</p></div>
+    <div class="card"><p> "I highly recommend Molejo Farms for their quality products and great service!"</p></div>
+    <div class="card"><p> "Molejo Farms has become my favorite place to shop for fresh produce!"</p></div>
+<div class="card"><p> "The farm events are so much fun and educational!"</p></div>
+</section>
+
+<section class="container center-section">
+  <h2 class="section-title">Visit Us</h2>
+  <p>678 Medie</p>
+  <p>Mon-Sat: 8am - 10pm</p>
+  <p>Sun: 10am - 4pm</p>
+</section>
+
+<section class="container center-section">
+  <h2 class="section-title">FAQ</h2>
+  <p><strong>Q: Do you offer delivery?</strong><br>A: Yes, we deliver within Gaborone for orders over BWP 100.</p>
+  <p><strong>Q: Can I book a farm tour?</strong><br>A: Yes, farm tours are available on weekends. Please book in advance.</p>
+  <p><strong>Q: Do you have a loyalty program?</strong><br>A: Not yet, but we plan to launch one soon. Stay tuned!</p>
+</section>
+
 <footer>
   <p>© 2026 Molejo Farms</p>
   <p>Email: MolejoFarms@gmail.com</p>
 </footer>
-  <script src="script.js"></script>
+
+<script src="script.js"></script>
 </body>
 </html>
+
