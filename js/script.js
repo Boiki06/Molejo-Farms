@@ -482,7 +482,6 @@ function updateCheckoutForm(){
   let payment = document.querySelector('input[name="paymentOption"]:checked');
   let addressGroup = document.getElementById("deliveryAddressGroup");
   let cardGroup = document.getElementById("cardDetailsGroup");
-  let cardOption = document.getElementById("cardPaymentOption");
   let deliveryOption = document.querySelector('input[name="deliveryOption"][value="delivery"]');
   let deliveryWarning = document.getElementById("deliveryWarning");
 
@@ -518,8 +517,41 @@ function updateCheckoutForm(){
     cardGroup.style.display = (payment && payment.value === "payNow") ? "block" : "none";
   }
 
-  if(cardOption){
-    cardOption.style.display = (delivery && delivery.value === "pickup") ? "none" : "block";
+  let payNowOption = document.getElementById("payNowOption");
+  let payOnPickupOption = document.getElementById("payOnPickupOption");
+  let payOnDeliveryOption = document.getElementById("payOnDeliveryOption");
+  let payOnPickupLabel = document.querySelector('label[for="payOnPickupOption"]');
+  let payOnDeliveryLabel = document.querySelector('label[for="payOnDeliveryOption"]');
+
+  if(delivery && delivery.value === "pickup"){
+    if(payOnDeliveryOption){
+      payOnDeliveryOption.disabled = true;
+      if(payOnDeliveryLabel) payOnDeliveryLabel.style.display = "none";
+      if(payOnDeliveryOption.checked && payNowOption){
+        payNowOption.checked = true;
+      }
+    }
+    if(payOnPickupOption){
+      payOnPickupOption.disabled = false;
+      if(payOnPickupLabel) payOnPickupLabel.style.display = "inline-flex";
+    }
+  } else if(delivery && delivery.value === "delivery"){
+    if(payOnPickupOption){
+      payOnPickupOption.disabled = true;
+      if(payOnPickupLabel) payOnPickupLabel.style.display = "none";
+      if(payOnPickupOption.checked && payNowOption){
+        payNowOption.checked = true;
+      }
+    }
+    if(payOnDeliveryOption){
+      payOnDeliveryOption.disabled = false;
+      if(payOnDeliveryLabel) payOnDeliveryLabel.style.display = "inline-flex";
+    }
+  }
+
+  payment = document.querySelector('input[name="paymentOption"]:checked');
+  if(cardGroup){
+    cardGroup.style.display = (payment && payment.value === "payNow") ? "block" : "none";
   }
 
   populateCheckoutAddresses();

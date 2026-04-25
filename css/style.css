@@ -138,6 +138,27 @@ button:hover {
   background: #5a9442;
 }
 
+/* BUTTON CLASS FOR LINKS */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  background: var(--secondary);
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  margin: 5px;
+}
+
+.button:hover {
+  background: #5a9442;
+  color: white;
+  text-decoration: none;
+}
+
 /* QUANTITY CONTROLS */
 .quantity-controls {
   display: flex;
@@ -257,6 +278,12 @@ textarea {
   text-align: center;
 }
 
+/* Align radio button labels with dots */
+.form-check-label {
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
 .highlight {
   background: #fff3cd;
   padding: 8px;
@@ -358,6 +385,13 @@ textarea {
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 8px;
+}
+
+.btn-check:checked + .btn,
+.btn-check:active + .btn {
+  background-color: #6aa84f;
+  color: white;
+  border-color: #6aa84f;
 }
 
 .receipt-items {

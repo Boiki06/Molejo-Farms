@@ -4,96 +4,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout - Molejo Farms</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
 <header>
   <div class="logo-container">
     <img src="images/ui/logo.png" class="logo">
     <h1 class="brand">Molejo Farms</h1>
   </div>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="products.html">Products</a>
     <a href="events.html">Events</a>
     <a href="bookings.html">Booking</a>
     <a href="cart.html">Cart(<span id="cart-count">0</span>)</a>
-     <a href="tips.html">Tips</a>
+    <a href="tips.html">Tips</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-     <a href="account.html">Account</a>
+    <a href="account.html">Account</a>
   </nav>
 </header>
-<main class="container center-section">
+
+<main class="container py-5">
   <h2 class="section-title">Checkout</h2>
-  <div class="checkout-layout">
-    <div class="checkout-summary">
-      <div class="booking-box" id="checkoutCartDisplay"></div>
-      <div class="booking-box">
+  <p class="text-muted mb-4">Review your order, choose pickup or delivery, then complete payment securely.</p>
+
+  <div class="row g-4">
+
+    <div class="col-12 col-lg-5">
+      <div class="booking-box text-start">
+        <h3>Checkout Details</h3>
+
+        <form id="checkoutForm" onsubmit="placeOrder(event)">
+
+          <div class="mb-4">
+            <h5>Delivery Method</h5>
+            <div class="button-group">
+              <input type="radio" class="btn-check" name="deliveryOption" id="pickupOption" value="pickup" onchange="updateCheckoutForm()" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="pickupOption">Pickup</label>
+
+              <input type="radio" class="btn-check" name="deliveryOption" id="deliveryOptionRadio" value="delivery" onchange="updateCheckoutForm()" autocomplete="off">
+              <label class="btn btn-outline-primary" for="deliveryOptionRadio">Delivery</label>
+            </div>
+            <p id="deliveryWarning" class="text-muted mt-2" style="display:none;"></p>
+          </div>
+
+          <div class="mb-4" id="deliveryAddressGroup" style="display:none;">
+            <h5>Delivery Details</h5>
+            <label class="form-label" for="deliveryAddress">Delivery Address</label>
+            <input type="text" id="deliveryAddress" class="form-control" placeholder="Enter delivery address">
+          </div>
+
+          <div class="mb-4" id="savedAddressGroup" style="display:none;">
+            <h5>Saved Addresses</h5>
+            <select id="savedAddressSelect" class="form-select" onchange="updateSavedAddressSelection()"></select>
+            <p class="text-muted mt-2">Select a saved address to fill the delivery field automatically.</p>
+          </div>
+
+          <div class="mb-4">
+            <h5>Contact</h5>
+            <label class="form-label" for="contactNumber">Phone number</label>
+            <input type="text" id="contactNumber" class="form-control" placeholder="Enter phone number">
+          </div>
+
+          <div class="mb-4">
+            <h5>Payment Method</h5>
+            <div class="button-group">
+              <input type="radio" class="btn-check" name="paymentOption" id="payNowOption" value="payNow" onchange="updateCheckoutForm()" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="payNowOption">Pay Now</label>
+
+              <input type="radio" class="btn-check" name="paymentOption" id="payOnPickupOption" value="payOnPickup" onchange="updateCheckoutForm()" autocomplete="off">
+              <label class="btn btn-outline-primary" for="payOnPickupOption">Pay on Pickup</label>
+
+              <input type="radio" class="btn-check" name="paymentOption" id="payOnDeliveryOption" value="payOnDelivery" onchange="updateCheckoutForm()" autocomplete="off">
+              <label class="btn btn-outline-primary" for="payOnDeliveryOption">Pay on Delivery</label>
+            </div>
+          </div>
+
+          <div class="mb-4" id="cardDetailsGroup" style="display:block;">
+            <h5>Card Details</h5>
+            <label class="form-label" for="cardName">Card Holder Name</label>
+            <input type="text" id="cardName" class="form-control" placeholder="John Doe">
+            <label class="form-label mt-3" for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" class="form-control" placeholder="1234 1234 1234 1234" maxlength="19">
+            <div class="row g-3 mt-3">
+              <div class="col-sm-6">
+                <label class="form-label" for="cardExpiry">Expiry (MM/YY)</label>
+                <input type="text" id="cardExpiry" class="form-control" placeholder="MM/YY" maxlength="5">
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="cardCvv">CVV</label>
+                <input type="text" id="cardCvv" class="form-control" placeholder="123" maxlength="3">
+              </div>
+            </div>
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Place Order</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+      <div class="booking-box text-start">
+        <h3>Order Summary</h3>
+        <div id="checkoutCartDisplay"></div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-3">
+      <div class="booking-box text-start">
         <h3>Order Total</h3>
-        <p id="checkoutTotal">BWP 0.00</p>
+        <p id="checkoutTotal" class="fs-4 fw-semibold">BWP 0.00</p>
       </div>
     </div>
 
-    <div class="checkout-form booking-box">
-      <form id="checkoutForm" onsubmit="placeOrder(event)">
-    <div class="booking-box">
-      <h3>Delivery Options</h3>
-      <label><input type="radio" name="deliveryOption" value="pickup" onchange="updateCheckoutForm()" checked> Pickup</label><br>
-      <label><input type="radio" name="deliveryOption" value="delivery" onchange="updateCheckoutForm()"> Delivery</label>
-      <p id="deliveryWarning" class="muted" style="display:none; margin-top:10px;"></p>
-    </div>
-
-    <div class="booking-box" id="deliveryAddressGroup" style="display:none;">
-      <h3>Delivery Details</h3>
-      <label>Delivery Address</label>
-      <input type="text" id="deliveryAddress" placeholder="Enter delivery address">
-    </div>
-
-    <div class="booking-box" id="savedAddressGroup" style="display:none;">
-      <h3>Saved Addresses</h3>
-      <select id="savedAddressSelect" onchange="updateSavedAddressSelection()"></select>
-      <p class="muted">Pick a saved address and it will populate the delivery address field.</p>
-    </div>
-
-    <div class="booking-box">
-      <h3>Contact</h3>
-      <label>Phone number</label>
-      <input type="text" id="contactNumber" placeholder="Enter phone number">
-    </div>
-
-    <div class="booking-box">
-      <h3>Payment Options</h3>
-      <label><input type="radio" name="paymentOption" value="payNow" onchange="updateCheckoutForm()" checked> Pay Now</label><br>
-      <label><input type="radio" name="paymentOption" value="payOnPickup" onchange="updateCheckoutForm()"> Pay on Pickup</label><br>
-      <div id="cardPaymentOption" style="margin-left:16px;">
-        <label><input type="radio" name="paymentOption" value="payOnDelivery" onchange="updateCheckoutForm()"> Pay on Delivery</label>
-      </div>
-    </div>
-
-    <div class="booking-box" id="cardDetailsGroup" style="display:block;">
-      <h3>Card Details</h3>
-      <label>Card Holder Name</label>
-      <input type="text" id="cardName" placeholder="John Doe">
-      <label>Card Number</label>
-      <input type="text" id="cardNumber" placeholder="1234123412341234" maxlength="19">
-      <label>Expiry (MM/YY)</label>
-      <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
-      <label>CVV</label>
-      <input type="text" id="cardCvv" placeholder="123" maxlength="3">
-      <p class="muted">⚠️ This is a demo site. Use test card: 4111111111111111</p>
-    </div>
-
-    <div class="checkout-actions">
-      <button type="submit" class="button">Place Order</button>
-    </div>
-  </form>
-  </div>
   </div>
 </main>
+
 <footer>
   <p>© 2026 Molejo Farms</p>
-  <p>Email: MolejoFarms@gmail.com</p>
-</footer><script src="script.js"></script></body>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoDekTTOsgK4t62b24MR0k2n0n0V8MK0QevoRxT2MZw1T" crossorigin="anonymous"></script>
+</body>
 </html>
+
+
+
+
+
+
