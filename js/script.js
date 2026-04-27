@@ -1126,3 +1126,48 @@ window.addEventListener('load', function(){
 
   loadNotes();
 });
+
+
+
+// FEEDBACK FORM
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("feedbackForm");
+
+  if (!form) return; // stops errors if form is not on page
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Get values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const rating = document.getElementById("rating").value;
+
+    // Validation
+    if (!name || !email || !message || !rating) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    // Save feedback (optional but good for assignment)
+    const feedback = {
+      name,
+      email,
+      message,
+      rating,
+      date: new Date().toLocaleString()
+    };
+
+    let feedbackList = JSON.parse(localStorage.getItem("feedbackList")) || [];
+    feedbackList.push(feedback);
+    localStorage.setItem("feedbackList", JSON.stringify(feedbackList));
+
+    // ✅ SUCCESS ALERT
+    alert("Your feedback has been received successfully!");
+
+    // Reset form
+    form.reset();
+  });
+});
